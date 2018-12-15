@@ -1,0 +1,6 @@
+C:\Users\vikmar\source\repos\EduMan\EduMan.Models\bin\Debug\netcoreapp2.1\Eduman.Models.deps.json
+C:\Users\vikmar\source\repos\EduMan\EduMan.Models\bin\Debug\netcoreapp2.1\Eduman.Models.dll
+C:\Users\vikmar\source\repos\EduMan\EduMan.Models\obj\Debug\netcoreapp2.1\Eduman.Models.csprojAssemblyReference.cache
+C:\Users\vikmar\source\repos\EduMan\EduMan.Models\obj\Debug\netcoreapp2.1\Eduman.Models.csproj.CoreCompileInputs.cache
+C:\Users\vikmar\source\repos\EduMan\EduMan.Models\obj\Debug\netcoreapp2.1\Eduman.Models.AssemblyInfoInputs.cache
+C:\Users\vikmar\source\repos\EduMan\EduMan.Models\obj\Debug\netcoreapp2.1\Eduman.Models.AssemblyInfo.cs
