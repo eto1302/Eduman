@@ -10,7 +10,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Eduman.Data;
+using Eduman.Middlewares.Extensions;
 using Eduman.Models;
+using Eventures.Utilities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -56,7 +58,7 @@ namespace Eduman
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider provider)
         {
             if (env.IsDevelopment())
             {
@@ -69,6 +71,9 @@ namespace Eduman
                 app.UseHsts();
             }
 
+            
+            RoleSeeder.Seed(provider);
+            app.UseDataSeeder();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
