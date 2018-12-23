@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Eventures.Middlewares;
 using Microsoft.AspNetCore.Builder;
 
-namespace Eduman.Middlewares.Extensions
+namespace Eduman.Middlewares.MiddlewaresExtensions
 {
     public static class MiddlewareExtension
     {

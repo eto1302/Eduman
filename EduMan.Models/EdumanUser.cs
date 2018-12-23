@@ -14,5 +14,7 @@ namespace Eduman.Models
         public string School { get; set; }
 
         public int Number { get; set; }
+
+        public bool IsConfirmed { get; set; }
     }
 }

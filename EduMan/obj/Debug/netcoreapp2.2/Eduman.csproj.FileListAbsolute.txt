@@ -52,7 +52,6 @@ C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Eduman.TagHelpers.input.cache
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Eduman.TagHelpers.output.cache
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Eduman.RazorCoreGenerate.cache
-C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
@@ -68,3 +67,6 @@ C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Eduman.dll
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Eduman.pdb
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_NavbarPartial.g.cshtml.cs
+C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Account\Login.g.cshtml.cs
+C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Account\Register.g.cshtml.cs
+C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Account\RegisterRequestNotification.g.cshtml.cs

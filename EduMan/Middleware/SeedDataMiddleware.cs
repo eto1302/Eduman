@@ -7,12 +7,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Eventures.Middlewares
+namespace Eduman.Middlewares
 {
     public class SeedDataMiddleware
     {
         private readonly RequestDelegate next;
-
         public SeedDataMiddleware(RequestDelegate next)
         {
             this.next = next;
@@ -33,7 +32,8 @@ namespace Eventures.Middlewares
                     LastName = "Petrov",
                     Email = "teacher@teacherpass",
                     School = "RNDSchool",
-                    Number = 0
+                    Number = 0,
+                    IsConfirmed = true
                 };
 
                 await userManager.CreateAsync(user, "teacherpass");
@@ -49,6 +49,7 @@ namespace Eventures.Middlewares
                     LastName = "Petkov",
                     School = "RNDSchool",
                     Email = "principal@principalpass",
+                    IsConfirmed = true,
                     Number = 0
                 };
 
@@ -65,14 +66,16 @@ namespace Eventures.Middlewares
                     LastName = "Georgiev",
                     School = "RNDSchool",
                     Email = "student@studentpass",
-                    Number = 0
+                    Number = 0,
+                    IsConfirmed = true
+
                 };
 
                 await userManager.CreateAsync(user, "studentpass");
 
                 await userManager.AddToRoleAsync(user, "Student");
             }
-            await next(httpContext);
+            await this.next(httpContext);
         }
     }
 }

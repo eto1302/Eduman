@@ -4,10 +4,10 @@
     <div class="jumbotron ml-5  mr-5 mt-5 eduman-secbg-color">
         <h1 class="text-center">Eduman - Your Education Manager</h1>
         <div class="col-sm">
-            <h3 class="text-center"><a class="nav-link-white text-primary" asp-area="Identity" asp-page="/Account/Login">Login</a> to see your education statistics</h3>
+            <h3 class="text-center"><a class="nav-link-white text-primary" asp-controller="Account" asp-action="Login">Login</a> to see your education statistics</h3>
         </div>
         <div class="col-sm">
-            <h3 class="text-center"><a class="nav-link-white text-primary" asp-area="Identity" asp-page="/Account/Register">Register</a> if you don't have an account.</h3>
+            <h3 class="text-center"><a class="nav-link-white text-primary" asp-controller="Account" asp-action="Register">Register</a> if you don't have an account.</h3>
         </div>
     </div>
 }
@@ -18,14 +18,14 @@
     {
         <div class="jumbotron ml-5  mr-5 mt-5 eduman-secbg-color">
             <h1 class="text-center">Welcome, Teacher - @User.Identity.Name</h1>
-            <h3 style="color: black">Enjoy your work.</h3>
+            <h3 style="color: black" class ="text-center">Enjoy your work.</h3>
         </div>
     }
     else if (User.IsInRole("Principal"))
     {
         <div class="jumbotron ml-5  mr-5 mt-5 eduman-secbg-color">
             <h1 class="text-center">Welcome, Principal - @User.Identity.Name</h1>
-            <h3 style="color: black">Enjoy your work.</h3>
+            <h3 style="color: black" class ="text-center">Enjoy your work.</h3>
         </div>
     }
     else if (User.IsInRole("Student"))

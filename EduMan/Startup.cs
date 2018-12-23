@@ -10,11 +10,16 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Eduman.Data;
-using Eduman.Middlewares.Extensions;
+using Eduman.Middlewares.MiddlewaresExtensions;
 using Eduman.Models;
-using Eventures.Utilities;
+using Eduman.Utilities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using AutoMapper;
+using Eduman.Mapping;
+using Eduman.Middlewares.MiddlewaresExtensions;
+using Eduman.Services;
+using Eduman.Services.Contracts;
 
 namespace Eduman
 {
@@ -50,16 +55,19 @@ namespace Eduman
                     opt.Password.RequiredUniqueChars = 0;
                     opt.Password.RequiredLength = 5;
                 })
-                .AddDefaultUI()
-                .AddDefaultTokenProviders()
-                .AddEntityFrameworkStores<EdumanDbContext>();
+                .AddEntityFrameworkStores<EdumanDbContext>()
+                .AddDefaultTokenProviders();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddTransient<IAccountService, AccountService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider provider)
         {
+            AutoMapperConfig.ConfigureMapping();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -71,9 +79,8 @@ namespace Eduman
                 app.UseHsts();
             }
 
-            
-            RoleSeeder.Seed(provider);
             app.UseDataSeeder();
+            RoleSeeder.Seed(provider);
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
@@ -82,6 +89,10 @@ namespace Eduman
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: "areaRoute",
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

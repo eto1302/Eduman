@@ -50,6 +50,8 @@ namespace Eduman.Migrations
 
                     b.Property<string>("FirstName");
 
+                    b.Property<bool>("IsConfirmed");
+
                     b.Property<string>("LastName");
 
                     b.Property<bool>("LockoutEnabled");
@@ -156,6 +158,22 @@ namespace Eduman.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Grades");
+                });
+
+            modelBuilder.Entity("Eduman.Models.PendingUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Role");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PendingUsers");
                 });
 
             modelBuilder.Entity("Eduman.Models.Reflection", b =>
@@ -312,6 +330,13 @@ namespace Eduman.Migrations
                     b.HasOne("Eduman.Models.EdumanUser", "Teacher")
                         .WithMany()
                         .HasForeignKey("TeacherId");
+                });
+
+            modelBuilder.Entity("Eduman.Models.PendingUser", b =>
+                {
+                    b.HasOne("Eduman.Models.EdumanUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Eduman.Models.Reflection", b =>
