@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Eduman.Models.ViewModels.AllAbsencesViewModel>
+@{
+    
+}
+
+<h1 class="text-center">All Orders</h1>
+<hr class="eventures-bg-color hr-2 w-75" />
+<table class="table w-75 mx-auto table-hover border-top-0">
+    <thead>
+        <tr>
+            <th scope="col">Student Name</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Teacher Name</th>
+            <th scope="col">Date Absent</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var m in @Model)
+        {
+            <tr>
+                <th scope="row">@m.StudentName</th>
+                <td>@m.Subject</td>
+                <td>@m.TeacherName</td>
+                <td>@m.DateAbsent.ToString("dd/MM/yyyy hh:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>
