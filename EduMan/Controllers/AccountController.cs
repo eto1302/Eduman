@@ -7,6 +7,7 @@ using Eduman.Models.BindingModels;
 using Eduman.Services.Contracts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace Eduman.Controllers
@@ -34,12 +35,13 @@ namespace Eduman.Controllers
             return this.View();
         }
         [HttpPost]
-        public async Task<IActionResult> Login(LoginBindingModel loginBindingModel)
+        public IActionResult Login(LoginBindingModel loginBindingModel)
         {
             EdumanUser user = signInManager.UserManager.Users.FirstOrDefault(u => u.UserName == loginBindingModel.Username);
             SignInResult result = null;
-            if(user.IsConfirmed)result = this.signInManager.PasswordSignInAsync(user, loginBindingModel.Password, isPersistent: false, lockoutOnFailure: false).Result;
-
+            if (user == null) return this.View();
+            if (!user.IsConfirmed) return this.View();
+            result = this.signInManager.PasswordSignInAsync(user, loginBindingModel.Password, isPersistent: false, lockoutOnFailure: false).Result;
             if (result.Succeeded && user.IsConfirmed)
             {
                 return RedirectToAction("Index", "Home");
@@ -51,25 +53,22 @@ namespace Eduman.Controllers
         [HttpPost]
         public IActionResult Register(RegisterBindingModel registerBindingModel)
         {
-            var user = new EdumanUser()
+            var user = Mapper.Map<EdumanUser>(registerBindingModel);
+            user.IsConfirmed = false;
+            var result = this.signInManager.UserManager.CreateAsync(user, registerBindingModel.Password).Result;
+            if (result.Succeeded)
             {
-                Email = registerBindingModel.Email,
-                UserName = registerBindingModel.Username,
-                FirstName = registerBindingModel.FirstName,
-                LastName = registerBindingModel.LastName,
-                Number = registerBindingModel.Number,
-                School = registerBindingModel.School
-            };
-            
+                return this.View("~/Views/Account/RegisterRequestNotification.cshtml");
+            }
 
-            accountService.AddUserToPending(user, registerBindingModel.Role);
-            return this.View("~/Views/Account/RegisterRequestNotification.cshtml");
+            return this.View();
+
         }
 
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
-            signInManager.SignOutAsync();
+            await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
     }

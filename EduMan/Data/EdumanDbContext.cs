@@ -17,8 +17,6 @@ namespace Eduman.Data
 
         public DbSet<Event> Events { get; set; }
 
-        public DbSet<PendingUser> PendingUsers { get; set; }
-
         public DbSet<Grade> Grades { get; set; }
 
         public DbSet<Absence> Absences { get; set; }

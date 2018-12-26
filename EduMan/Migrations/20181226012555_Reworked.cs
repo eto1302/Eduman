@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Eduman.Migrations
 {
-    public partial class initial : Migration
+    public partial class Reworked : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,9 @@ namespace Eduman.Migrations
                 {
                     Id = table.Column<string>(nullable: false),
                     Subject = table.Column<string>(nullable: true),
-                    DateAbsent = table.Column<DateTime>(nullable: false)
+                    DateAbsent = table.Column<DateTime>(nullable: false),
+                    StudentId = table.Column<string>(nullable: true),
+                    TeacherId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -66,6 +68,38 @@ namespace Eduman.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Events",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    Type = table.Column<string>(nullable: true),
+                    EventDate = table.Column<DateTime>(nullable: false),
+                    StudentId = table.Column<string>(nullable: true),
+                    TeacherId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Events", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Fees",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    Cost = table.Column<int>(nullable: false),
+                    DueDate = table.Column<DateTime>(nullable: false),
+                    StudentId = table.Column<string>(nullable: true),
+                    TeacherId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Fees", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Grades",
                 columns: table => new
                 {
@@ -73,11 +107,29 @@ namespace Eduman.Migrations
                     Subject = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Value = table.Column<double>(nullable: false),
-                    DateCreated = table.Column<DateTime>(nullable: false)
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    StudentId = table.Column<string>(nullable: true),
+                    TeacherId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Grades", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reflections",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    IsCompliment = table.Column<bool>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    StudentId = table.Column<string>(nullable: true),
+                    TeacherId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reflections", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -186,109 +238,6 @@ namespace Eduman.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Events",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
-                    Type = table.Column<string>(nullable: true),
-                    EventDate = table.Column<DateTime>(nullable: false),
-                    StudentId = table.Column<string>(nullable: true),
-                    TeacherId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Events", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Events_AspNetUsers_StudentId",
-                        column: x => x.StudentId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Events_AspNetUsers_TeacherId",
-                        column: x => x.TeacherId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Fees",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
-                    Cost = table.Column<int>(nullable: false),
-                    DueDate = table.Column<DateTime>(nullable: false),
-                    TeacherId = table.Column<string>(nullable: true),
-                    StudentId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Fees", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Fees_AspNetUsers_StudentId",
-                        column: x => x.StudentId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Fees_AspNetUsers_TeacherId",
-                        column: x => x.TeacherId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PendingUsers",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    UserId = table.Column<string>(nullable: true),
-                    Role = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PendingUsers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_PendingUsers_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Reflections",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    IsCompliment = table.Column<bool>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
-                    DateCreated = table.Column<DateTime>(nullable: false),
-                    StudentId = table.Column<string>(nullable: true),
-                    TeacherId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Reflections", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Reflections_AspNetUsers_StudentId",
-                        column: x => x.StudentId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Reflections_AspNetUsers_TeacherId",
-                        column: x => x.TeacherId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -327,41 +276,6 @@ namespace Eduman.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Events_StudentId",
-                table: "Events",
-                column: "StudentId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Events_TeacherId",
-                table: "Events",
-                column: "TeacherId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Fees_StudentId",
-                table: "Fees",
-                column: "StudentId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Fees_TeacherId",
-                table: "Fees",
-                column: "TeacherId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PendingUsers_UserId",
-                table: "PendingUsers",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Reflections_StudentId",
-                table: "Reflections",
-                column: "StudentId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Reflections_TeacherId",
-                table: "Reflections",
-                column: "TeacherId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -392,9 +306,6 @@ namespace Eduman.Migrations
 
             migrationBuilder.DropTable(
                 name: "Grades");
-
-            migrationBuilder.DropTable(
-                name: "PendingUsers");
 
             migrationBuilder.DropTable(
                 name: "Reflections");

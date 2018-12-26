@@ -4,7 +4,41 @@
 <a class="navbar-brand nav-link-black font-weight-bold" href="/">Eduman</a>
 @if (user.Identity.IsAuthenticated)
 {
-    <ul class="navbar-nav ml-auto">
+    if (user.IsInRole("Teacher"))
+    {
+        <li class="nav-item dropdown" style="list-style:none">
+            <a class="dropdown-toggle font-weight-bold nav-link" data-toggle="dropdown" href="#">
+                Absences
+            </a>
+            <ul class="dropdown-menu list-style:none">
+                <li><a asp-controller="Absence" asp-action="Create">Create Absence</a></li>
+                <li><a asp-controller="Absence" asp-action="All">All Absences</a></li>
+            </ul>
+        </li>
+    }
+    if (user.IsInRole("Principal"))
+    {
+        <li class="nav-item dropdown" style="list-style:none">
+            <a class="dropdown-toggle font-weight-bold nav-link" data-toggle="dropdown" href="#">
+                Absences
+            </a>
+            <ul class="dropdown-menu list-style:none">
+                <li><a asp-controller="Absence" asp-action="All">All Absences</a></li>
+            </ul>
+        </li>
+    }
+    if (user.IsInRole("Student"))
+    {
+        <li class="nav-item dropdown" style="list-style:none">
+            <a class="dropdown-toggle font-weight-bold nav-link" data-toggle="dropdown" href="#">
+                Absences
+            </a>
+            <ul class="dropdown-menu list-style:none">
+                <li><a asp-controller="Absence" asp-action="All">All Absences</a></li>
+            </ul>
+        </li>
+    }
+    <ul class="navbar-nav ml-auto" style="list-style:none">
         <li class="nav-item">
             <a class="nav-link font-weight-bold" asp-controller="Account" asp-action="Logout">Logout</a>
         </li>

@@ -18,14 +18,6 @@ namespace Eduman.Services
             this.context = context;
         }
 
-        public void AddUserToPending(EdumanUser user, string ModelRole)
-        {
-            this.context.PendingUsers.Add(new PendingUser
-            {
-                Role = ModelRole,
-                User = user
-            });
-            this.context.SaveChanges();
-        }
+        
     }
 }

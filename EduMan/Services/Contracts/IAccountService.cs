@@ -8,6 +8,6 @@ namespace Eduman.Services.Contracts
 {
     public interface IAccountService
     {
-        void AddUserToPending(EdumanUser user, string Role);
+        
     }
 }

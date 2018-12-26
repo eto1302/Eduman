@@ -14,8 +14,8 @@ namespace Eduman.Models
 
         public DateTime EventDate { get; set; }
 
-        public EdumanUser Student { get; set; }
+        public string StudentId { get; set; }
 
-        public EdumanUser Teacher { get; set; }
+        public string TeacherId { get; set; }
     }
 }

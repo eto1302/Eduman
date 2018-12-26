@@ -26,7 +26,11 @@ namespace Eduman.Migrations
 
                     b.Property<DateTime>("DateAbsent");
 
+                    b.Property<string>("StudentId");
+
                     b.Property<string>("Subject");
+
+                    b.Property<string>("TeacherId");
 
                     b.HasKey("Id");
 
@@ -111,10 +115,6 @@ namespace Eduman.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StudentId");
-
-                    b.HasIndex("TeacherId");
-
                     b.ToTable("Events");
                 });
 
@@ -135,10 +135,6 @@ namespace Eduman.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StudentId");
-
-                    b.HasIndex("TeacherId");
-
                     b.ToTable("Fees");
                 });
 
@@ -151,29 +147,17 @@ namespace Eduman.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<string>("StudentId");
+
                     b.Property<string>("Subject");
+
+                    b.Property<string>("TeacherId");
 
                     b.Property<double>("Value");
 
                     b.HasKey("Id");
 
                     b.ToTable("Grades");
-                });
-
-            modelBuilder.Entity("Eduman.Models.PendingUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Role");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("PendingUsers");
                 });
 
             modelBuilder.Entity("Eduman.Models.Reflection", b =>
@@ -192,10 +176,6 @@ namespace Eduman.Migrations
                     b.Property<string>("TeacherId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("StudentId");
-
-                    b.HasIndex("TeacherId");
 
                     b.ToTable("Reflections");
                 });
@@ -308,46 +288,6 @@ namespace Eduman.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Eduman.Models.Event", b =>
-                {
-                    b.HasOne("Eduman.Models.EdumanUser", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentId");
-
-                    b.HasOne("Eduman.Models.EdumanUser", "Teacher")
-                        .WithMany()
-                        .HasForeignKey("TeacherId");
-                });
-
-            modelBuilder.Entity("Eduman.Models.Fee", b =>
-                {
-                    b.HasOne("Eduman.Models.EdumanUser", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentId");
-
-                    b.HasOne("Eduman.Models.EdumanUser", "Teacher")
-                        .WithMany()
-                        .HasForeignKey("TeacherId");
-                });
-
-            modelBuilder.Entity("Eduman.Models.PendingUser", b =>
-                {
-                    b.HasOne("Eduman.Models.EdumanUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("Eduman.Models.Reflection", b =>
-                {
-                    b.HasOne("Eduman.Models.EdumanUser", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentId");
-
-                    b.HasOne("Eduman.Models.EdumanUser", "Teacher")
-                        .WithMany()
-                        .HasForeignKey("TeacherId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
