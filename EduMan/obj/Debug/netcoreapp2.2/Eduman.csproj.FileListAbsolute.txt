@@ -72,3 +72,6 @@ C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Account\RegisterRequestNotification.g.cshtml.cs
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Absence\Create.g.cshtml.cs
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Absence\All.g.cshtml.cs
+C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Event\All.g.cshtml.cs
+C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Event\Create.g.cshtml.cs
+C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Event\Details.g.cshtml.cs

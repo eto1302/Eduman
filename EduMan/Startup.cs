@@ -62,6 +62,7 @@ namespace Eduman
 
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<IAbsenceService, AbsenceService>();
+            services.AddTransient<IEventService, EventService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
