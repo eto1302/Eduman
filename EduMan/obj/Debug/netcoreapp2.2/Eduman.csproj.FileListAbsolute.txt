@@ -78,3 +78,7 @@ C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Fees\All.g.cshtml.cs
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Fees\Create.g.cshtml.cs
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Fees\Details.g.cshtml.cs
+C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Grades\All.g.cshtml.cs
+C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Grades\Create.g.cshtml.cs
+C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Grades\Details.g.cshtml.cs
+C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_GradesListingPartial.g.cshtml.cs
