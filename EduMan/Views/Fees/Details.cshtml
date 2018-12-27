@@ -1,0 +1,25 @@
+﻿@model Eduman.Models.ViewModels.FeeDetailsViewModel
+
+<h1 class="text-center">@Model.DueDate</h1>
+<hr class="hr-2 bg-dark" />
+<div class="half-width mx-auto d-flex justify-content-between">
+    <h3 class="text-center">Student: @($"{Model.StudentFirstName} {Model.StudentLastName}")</h3>
+    <h3 class="text-center">Teacher: @($"{Model.TeacherFirstName} {Model.TeacherLastName}")</h3>
+</div>
+<hr class="hr-2 bg-dark" />
+<div class="half-width mx-auto d-flex justify-content-between">
+    <h3 class="text-center">Cost: $@Model.Cost</h3>
+    <h3 class="text-center">School: @Model.School</h3>
+</div>
+<hr class="hr-2 bg-dark" />
+<h3 class="text-center">Description</h3>
+<p class="text-center mt-4">
+    @Model.Description
+</p>
+<hr class="hr-2 bg-dark" />
+<h3 class="text-center">Actions</h3>
+<div class="mt-4 d-flex justify-content-around">
+    <div class="mt-4 d-flex justify-content-around">
+        <a class="btn eduman-secbg-color text-white" asp-controller="Fees" asp-action="All">Back To All</a>
+    </div>
+</div>
