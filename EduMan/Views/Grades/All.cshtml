@@ -1,0 +1,31 @@
+﻿@using Eduman.Utilities
+@model IEnumerable<Eduman.Models.ViewModels.AllGradesViewModel>
+
+<h1 class="text-center">All Fees</h1>
+<hr class="eventures-bg-color hr-2 w-75" />
+<table class="table w-75 mx-auto table-hover border-top-0">
+    <thead>
+        <tr>
+            <th scope="col">Subject</th>
+            <th scope="col">Grades</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (Subjects subject in (Subjects[])Enum.GetValues(typeof(Subjects)))
+        {
+             if (@Model.FirstOrDefault(m => m.Subject == subject.ToString()) != null)
+             {
+                 <tr>
+                     <th scope="row">@subject</th>
+                     <td>
+                         @{
+                             ViewData["subject"] = subject.ToString();
+                             await Html.RenderPartialAsync("_GradesListingPartial", Model);
+                         }
+                     </td>
+                 </tr>
+             }
+        }
+    </tbody>
+</table>

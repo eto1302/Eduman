@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Eduman.Models.ViewModels.AllGradesViewModel>
+@foreach (var grade in Model)
+{
+    if (grade.Subject == ViewData["subject"].ToString())
+    {
+        <a class="btn eduman-secbg-color text-white" asp-controller="Grades" asp-action="Details" asp-route-id="@grade.Id">@grade.Value</a>
+    }
+}
