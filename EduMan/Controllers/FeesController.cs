@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Eduman.Data;
 using Eduman.Models;
 using Eduman.Models.BindingModels;
 using Eduman.Services.Contracts;
@@ -12,14 +11,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Eduman.Controllers
 {
-    public class EventController : Controller
+    public class FeesController : Controller
     {
-        private IEventService eventService { get; set; }
+        private IFeeService feeService { get; set; }
         private UserManager<EdumanUser> userManager { get; set; }
-        public EventController(IEventService eventService, UserManager<EdumanUser> userManager)
+        public FeesController(UserManager<EdumanUser> userManager, IFeeService feeService)
         {
-            this.eventService = eventService;
             this.userManager = userManager;
+            this.feeService = feeService;
         }
 
 
@@ -31,11 +30,11 @@ namespace Eduman.Controllers
         }
         [HttpPost]
         [Authorize(Roles = "Teacher, Principal")]
-        public async Task<IActionResult> Create(CreateEventBindingModel createEventBindingModel)
+        public async Task<IActionResult> Create(CreateFeeBindingModel createFeeBindingModel)
         {
             try
             {
-                await eventService.CreateAsync(createEventBindingModel, this.User.Identity.Name);
+                await feeService.CreateAsync(createFeeBindingModel, this.User.Identity.Name);
             }
             catch (Exception e)
             {
@@ -48,16 +47,15 @@ namespace Eduman.Controllers
         [Authorize]
         public async Task<IActionResult> All()
         {
-            return this.View(await eventService.GetAllAsync(this.userManager.GetUserId(this.User)));
+            return this.View(await feeService.GetAllAsync(this.userManager.GetUserId(this.User)));
         }
 
-        
+
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> Details(string id)
         {
-            return this.View(await eventService.GetEventDetails(id));
+            return this.View(await feeService.GetFeeDetails(id));
         }
-
     }
 }

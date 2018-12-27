@@ -24,6 +24,15 @@
                 <li><a asp-controller="Event" asp-action="All">All Events</a></li>
             </ul>
         </li>
+        <li class="nav-item dropdown" style="list-style:none">
+            <a class="dropdown-toggle font-weight-bold nav-link" data-toggle="dropdown" href="#">
+                Fees
+            </a>
+            <ul class="dropdown-menu list-style:none">
+                <li><a asp-controller="Fees" asp-action="Create">Create Fee</a></li>
+                <li><a asp-controller="Fees" asp-action="All">All Fees</a></li>
+            </ul>
+        </li>
     }
     if (user.IsInRole("Principal"))
     {
@@ -44,6 +53,15 @@
                 <li><a asp-controller="Event" asp-action="All">All Events</a></li>
             </ul>
         </li>
+        <li class="nav-item dropdown" style="list-style:none">
+            <a class="dropdown-toggle font-weight-bold nav-link" data-toggle="dropdown" href="#">
+                Fees
+            </a>
+            <ul class="dropdown-menu list-style:none">
+                <li><a asp-controller="Fees" asp-action="Create">Create Fee</a></li>
+                <li><a asp-controller="Fees" asp-action="All">All Fees</a></li>
+            </ul>
+        </li>
     }
     if (user.IsInRole("Student"))
     {
@@ -61,6 +79,14 @@
             </a>
             <ul class="dropdown-menu list-style:none">
                 <li><a asp-controller="Event" asp-action="All">All Events</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown" style="list-style:none">
+            <a class="dropdown-toggle font-weight-bold nav-link" data-toggle="dropdown" href="#">
+                Fees
+            </a>
+            <ul class="dropdown-menu list-style:none">
+                <li><a asp-controller="Fees" asp-action="All">All Fees</a></li>
             </ul>
         </li>
     }
