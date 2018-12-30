@@ -8,6 +8,8 @@ using Eduman.Services.Contracts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
+using Eduman.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace Eduman.Controllers
@@ -34,6 +36,30 @@ namespace Eduman.Controllers
         {
             return this.View();
         }
+
+        [HttpGet]
+        [Authorize(Roles = "Principal")]
+        public async Task<IActionResult> ConfirmUser()
+        {
+            return this.View(await accountService.GetAllUnconfirmedUsersAsync(this.User.Identity.Name));
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Principal")]
+        public IActionResult ConfirmUser(string id)
+        {
+            try
+            {
+                accountService.ConfirmUser(id);
+            }
+            catch (Exception e)
+            {
+                if (e.Message == "The User is non-existent") return this.RedirectToAction("ConfirmUser");
+            }
+            return this.RedirectToAction("ConfirmUser");
+        }
+
+
         [HttpPost]
         public IActionResult Login(LoginBindingModel loginBindingModel)
         {
@@ -51,19 +77,30 @@ namespace Eduman.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(RegisterBindingModel registerBindingModel)
+        public async Task<IActionResult> Register(RegisterBindingModel registerBindingModel)
         {
-            var user = Mapper.Map<EdumanUser>(registerBindingModel);
-            user.IsConfirmed = false;
+            var user = new EdumanUser
+            {
+                FirstName = registerBindingModel.FirstName,
+                LastName = registerBindingModel.LastName,
+                Email = registerBindingModel.Email,
+                UserName = registerBindingModel.Username,
+                School = registerBindingModel.School,
+                Number = registerBindingModel.Number,
+                IsConfirmed = false
+            };
             var result = this.signInManager.UserManager.CreateAsync(user, registerBindingModel.Password).Result;
             if (result.Succeeded)
             {
+                await signInManager.UserManager.AddToRoleAsync(user, registerBindingModel.Role);
+                await signInManager.SignInAsync(user, isPersistent: false);
+                await signInManager.SignOutAsync();
                 return this.View("~/Views/Account/RegisterRequestNotification.cshtml");
             }
-
             return this.View();
 
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Logout()

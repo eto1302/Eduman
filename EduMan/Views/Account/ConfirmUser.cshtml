@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Eduman.Models.ViewModels.ConfirmUserViewModel>
+@{
+
+}
+
+<h1 class="text-center">Confirm Users</h1>
+<hr class="eventures-bg-color hr-2 w-75" />
+<table class="table w-75 mx-auto table-hover border-top-0">
+    <thead>
+        <tr>
+            <th scope="col">Student Name</th>
+            <th scope="col">Student Username</th>
+            <th scope="col">Role</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var m in @Model)
+        {
+            <tr>
+                <th scope="row">@($"{m.FirstName + m.LastName}")</th>
+                <td>@m.Username</td>
+                <td>@m.Role</td>
+                <td>
+                    <form method="post" asp-controller="Account" asp-action="ConfirmUser" asp-route-id="@m.Id">
+                        <button type="submit" class="btn eduman-bg-color">Confirm</button>
+                    </form>
+                </td>
+                @*<td><a class="btn eduman-secbg-color text-white" method="post" asp-controller="Account" asp-action="ConfirmUser" asp-route-id="@m.Id">Confirm</a></td>*@
+            </tr>
+
+        }
+    </tbody>
+</table>
