@@ -13,7 +13,7 @@ namespace Eduman.Controllers
 {
     public class FeesController : Controller
     {
-        private IFeeService feeService { get; set; }
+        private IFeeService feeService;
         private UserManager<EdumanUser> userManager { get; set; }
         public FeesController(UserManager<EdumanUser> userManager, IFeeService feeService)
         {

@@ -14,9 +14,9 @@ namespace Eduman.Controllers
 {
     public class AbsenceController : Controller
     {
-        
 
-        private IAbsenceService absenceService { get; set; }
+
+        private IAbsenceService absenceService;
         private UserManager<EdumanUser> userManager { get; set; }
         public AbsenceController(IAbsenceService absenceService, UserManager<EdumanUser> userManager)
         {

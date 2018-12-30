@@ -42,6 +42,16 @@
                 <li><a asp-controller="Grades" asp-action="All">All Grades</a></li>
             </ul>
         </li>
+        <li class="nav-item dropdown" style="list-style:none">
+            <a class="dropdown-toggle font-weight-bold nav-link" data-toggle="dropdown" href="#">
+                Reflections
+            </a>
+            <ul class="dropdown-menu list-style:none">
+                <li><a asp-controller="Reflection" asp-action="Create">Create Reflection</a></li>
+                <li><a asp-controller="Reflection" asp-action="AllCompliments">All Compliments</a></li>
+                <li><a asp-controller="Reflection" asp-action="AllCriticisms">All Criticisms</a></li>
+            </ul>
+        </li>
     }
     if (user.IsInRole("Principal"))
     {
@@ -69,14 +79,6 @@
             <ul class="dropdown-menu list-style:none">
                 <li><a asp-controller="Fees" asp-action="Create">Create Fee</a></li>
                 <li><a asp-controller="Fees" asp-action="All">All Fees</a></li>
-            </ul>
-        </li>
-        <li class="nav-item dropdown" style="list-style:none">
-            <a class="dropdown-toggle font-weight-bold nav-link" data-toggle="dropdown" href="#">
-                Grades
-            </a>
-            <ul class="dropdown-menu list-style:none">
-                <li><a asp-controller="Grades" asp-action="All">All Grades</a></li>
             </ul>
         </li>
     }
@@ -112,6 +114,15 @@
             </a>
             <ul class="dropdown-menu list-style:none">
                 <li><a asp-controller="Grades" asp-action="All">All Grades</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown" style="list-style:none">
+            <a class="dropdown-toggle font-weight-bold nav-link" data-toggle="dropdown" href="#">
+                Reflections
+            </a>
+            <ul class="dropdown-menu list-style:none">
+                <li><a asp-controller="Reflection" asp-action="AllCompliments">All Compliments</a></li>
+                <li><a asp-controller="Reflection" asp-action="AllCriticisms">All Criticisms</a></li>
             </ul>
         </li>
     }

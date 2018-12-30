@@ -14,7 +14,7 @@ namespace Eduman.Controllers
 {
     public class EventController : Controller
     {
-        private IEventService eventService { get; set; }
+        private IEventService eventService;
         private UserManager<EdumanUser> userManager { get; set; }
         public EventController(IEventService eventService, UserManager<EdumanUser> userManager)
         {

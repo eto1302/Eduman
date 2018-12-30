@@ -11,14 +11,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Eduman.Controllers
 {
-    public class GradesController : Controller
+    public class ReflectionController : Controller
     {
-        private IGradeService gradeService;
+        private IReflectionService reflectionService;
         private UserManager<EdumanUser> userManager { get; set; }
-        public GradesController(UserManager<EdumanUser> userManager, IGradeService gradeService)
+        public ReflectionController(UserManager<EdumanUser> userManager, IReflectionService reflectionService)
         {
             this.userManager = userManager;
-            this.gradeService = gradeService;
+            this.reflectionService = reflectionService;
         }
 
 
@@ -30,11 +30,11 @@ namespace Eduman.Controllers
         }
         [HttpPost]
         [Authorize(Roles = "Teacher")]
-        public async Task<IActionResult> Create(CreateGradeBindingModel createGradeBindingModel)
+        public async Task<IActionResult> Create(CreateReflectionBindingModel createReflectionBindingModel)
         {
             try
             {
-                await gradeService.CreateAsync(createGradeBindingModel, this.User.Identity.Name);
+                await reflectionService.CreateAsync(createReflectionBindingModel, this.User.Identity.Name);
             }
             catch (Exception e)
             {
@@ -44,18 +44,24 @@ namespace Eduman.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Teacher, Student")]
-        public async Task<IActionResult> All()
+        [Authorize(Roles = "Student, Teacher")]
+        public async Task<IActionResult> AllCompliments()
         {
-            return this.View(await gradeService.GetAllAsync(this.userManager.GetUserId(this.User)));
+            return this.View(await reflectionService.GetAllComplimentsAsync(this.userManager.GetUserId(this.User)));
         }
 
+        [HttpGet]
+        [Authorize(Roles="Student, Teacher")]
+        public async Task<IActionResult> AllCriticisms()
+        {
+            return this.View(await reflectionService.GetAllCriticismsAsync(this.userManager.GetUserId(this.User)));
+        }
 
         [HttpGet]
-        [Authorize(Roles = "Teacher, Student")]
+        [Authorize(Roles = "Student, Teacher")]
         public async Task<IActionResult> Details(string id)
         {
-            return this.View(await gradeService.GetGradeDetails(id));
+            return this.View(await reflectionService.GetReflectionDetails(id));
         }
     }
 }

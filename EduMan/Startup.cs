@@ -65,6 +65,7 @@ namespace Eduman
             services.AddTransient<IEventService, EventService>();
             services.AddTransient<IFeeService, FeeService>();
             services.AddTransient<IGradeService, GradeService>();
+            services.AddTransient<IReflectionService, ReflectionService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
