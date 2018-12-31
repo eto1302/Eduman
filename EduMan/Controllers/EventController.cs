@@ -39,7 +39,7 @@ namespace Eduman.Controllers
             }
             catch (Exception e)
             {
-                if (e.Message == "The User is either non-existent or is not a student") return this.View();
+                if (e.Message == "The User is either non-existent or is not a student") return this.View("~/Views/Shared/NonExistentStudentPage.cshtml");
             }
             return this.RedirectToAction("Index", "Home");
         }

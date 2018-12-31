@@ -63,3 +63,10 @@ footer {
     background: #7395AE;
     box-shadow: none;
 }
+
+.green-grade-bg-color {
+    background: #6fdc6f
+}
+.red-grade-bg-color {
+    background: #ff1a1a
+}

@@ -9,10 +9,12 @@
         <div class="form-group text-center font-weight-bold col-6 ">
             <label asp-for="StudentFirstName">Student's First Name</label>
             <input type="text" asp-for="StudentFirstName" class="form-control" placeholder="Student's First Name">
+            <span asp-validation-for="StudentFirstName" class="text-danger"></span>
         </div>
         <div class="form-group text-center font-weight-bold col-6 ">
             <label asp-for="StudentLastName">Student's Last Name</label>
             <input type="text" asp-for="StudentLastName" class="form-control" placeholder="Student's Last Name">
+            <span asp-validation-for="StudentLastName" class="text-danger"></span>
         </div>
     </div>
     <hr class="eduman-bg-color hr-2" />
@@ -20,10 +22,12 @@
         <div class="form-group col-6 font-weight-bold text-center">
             <label asp-for="Subject">Subject</label>
             <input type="text" asp-for="Subject" class="form-control" placeholder="Subject">
+            <span asp-validation-for="Subject" class="text-danger"></span>
         </div>
         <div class="form-group col-6  font-weight-bold text-center">
             <label asp-for="DateAbsent">Date and Time Absent</label>
             <input type="datetime" asp-for="DateAbsent" class="form-control" placeholder="Date and Time Absent">
+            <span asp-validation-for="DateAbsent" class="text-danger"></span>
         </div>
     </div>
     <hr class="eduman-bg-color hr-2" />
@@ -31,3 +35,7 @@
         <button type="submit" class="btn eduman-bg-color">Create</button>
     </div>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

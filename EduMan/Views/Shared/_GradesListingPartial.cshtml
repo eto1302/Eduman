@@ -3,6 +3,19 @@
 {
     if (grade.Subject == ViewData["subject"].ToString())
     {
-        <a class="btn eduman-secbg-color text-white" asp-controller="Grades" asp-action="Details" asp-route-id="@grade.Id">@grade.Value</a>
+        if (grade.Value >= 5.5)
+        {
+            <a class="btn green-grade-bg-color text-white" asp-controller="Grades" asp-action="Details" asp-route-id="@grade.Id">@grade.Value</a>
+        }
+        else if (grade.Value < 3)
+        {
+            <a class="btn red-grade-bg-color text-white" asp-controller="Grades" asp-action="Details" asp-route-id="@grade.Id">@grade.Value</a>
+        }
+        else
+        {
+            <a class="btn eduman-secbg-color text-white" asp-controller="Grades" asp-action="Details" asp-route-id="@grade.Id">@grade.Value</a>
+        }
+
+        
     }
 }

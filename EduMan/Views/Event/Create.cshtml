@@ -9,10 +9,12 @@
         <div class="form-group text-center font-weight-bold col-6 ">
             <label asp-for="StudentFirstName">Student's First Name</label>
             <input type="text" asp-for="StudentFirstName" class="form-control" placeholder="Student's First Name">
+            <span asp-validation-for="StudentFirstName" class="text-danger"></span>
         </div>
         <div class="form-group text-center font-weight-bold col-6 ">
             <label asp-for="StudentLastName">Student's Last Name</label>
             <input type="text" asp-for="StudentLastName" class="form-control" placeholder="Student's Last Name">
+            <span asp-validation-for="StudentLastName" class="text-danger"></span>
         </div>
     </div>
     <hr class="eduman-bg-color hr-2" />
@@ -20,10 +22,12 @@
         <div class="form-group col-6 font-weight-bold text-center">
             <label asp-for="Type">Type</label>
             <input type="text" asp-for="Type" class="form-control" placeholder="Type">
+            <span asp-validation-for="Type" class="text-danger"></span>
         </div>
         <div class="form-group col-6  font-weight-bold text-center">
             <label asp-for="EventDate">Date and Time of the Event</label>
             <input type="datetime" asp-for="EventDate" class="form-control" placeholder="Time and Date of the Event">
+            <span asp-validation-for="EventDate" class="text-danger"></span>
         </div>
     </div>
     <hr class="eduman-bg-color hr-2" />
@@ -31,6 +35,7 @@
         <div class="form-group col-12 font-weight-bold text-center">
             <label asp-for="Description">Description</label>
             <input type="text" asp-for="Description" class="form-control" placeholder="Description">
+            <span asp-validation-for="Description" class="text-danger"></span>
         </div>
     </div>
     <hr class="eduman-bg-color hr-2" />
@@ -38,3 +43,7 @@
         <button type="submit" class="btn eduman-bg-color">Create</button>
     </div>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

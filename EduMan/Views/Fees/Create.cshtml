@@ -9,10 +9,12 @@
         <div class="form-group text-center font-weight-bold col-6 ">
             <label asp-for="StudentFirstName">Student's First Name</label>
             <input type="text" asp-for="StudentFirstName" class="form-control" placeholder="Student's First Name">
+            <span asp-validation-for="StudentFirstName" class="text-danger"></span>
         </div>
         <div class="form-group text-center font-weight-bold col-6 ">
             <label asp-for="StudentLastName">Student's Last Name</label>
             <input type="text" asp-for="StudentLastName" class="form-control" placeholder="Student's Last Name">
+            <span asp-validation-for="StudentLastName" class="text-danger"></span>
         </div>
     </div>
     <hr class="eduman-bg-color hr-2" />
@@ -20,10 +22,12 @@
         <div class="form-group col-6 font-weight-bold text-center">
             <label asp-for="Cost">Cost</label>
             <input type="number" asp-for="Cost" class="form-control" placeholder="Cost">
+            <span asp-validation-for="Cost" class="text-danger"></span>
         </div>
         <div class="form-group col-6  font-weight-bold text-center">
             <label asp-for="DueDate">Due Date of the Fee</label>
             <input type="datetime" asp-for="DueDate" class="form-control" placeholder="Due Date of the Fee">
+            <span asp-validation-for="DueDate" class="text-danger"></span>
         </div>
     </div>
     <hr class="eduman-bg-color hr-2" />
@@ -31,6 +35,7 @@
         <div class="form-group col-12 font-weight-bold text-center">
             <label asp-for="Description">Description</label>
             <input type="text" asp-for="Description" class="form-control" placeholder="Description">
+            <span asp-validation-for="Description" class="text-danger"></span>
         </div>
     </div>
     <hr class="eduman-bg-color hr-2" />
@@ -38,3 +43,7 @@
         <button type="submit" class="btn eduman-bg-color">Create</button>
     </div>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

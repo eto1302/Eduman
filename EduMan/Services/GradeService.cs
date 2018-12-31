@@ -7,6 +7,7 @@ using Eduman.Models;
 using Eduman.Models.BindingModels;
 using Eduman.Models.ViewModels;
 using Eduman.Services.Contracts;
+using Eduman.Utilities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,9 +30,15 @@ namespace Eduman.Services
 
             EdumanUser Teacher =
                 this.context.Users.FirstOrDefault(u => u.UserName == teacherName);
+            
             if (Student == null || !(await userManager.IsInRoleAsync(Student, "Student")))
             {
                 throw new Exception("The User is either non-existent or is not a student");
+            }
+
+            if (gradeBindingModel.Subject.Contains(" "))
+            {
+                gradeBindingModel.Subject = gradeBindingModel.Subject.Split()[0] + gradeBindingModel.Subject.Split()[1];
             }
 
             Grade gradeModel = new Grade

@@ -13,19 +13,19 @@
     <script src="~/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container-fluid">
-    <header>
-        <nav class="navbar navbar-expand-lg eduman-bg-color">
-            
-            @{
-                await Html.RenderPartialAsync("_NavbarPartial");
-            }
-        </nav>
-    </header>
-    <main>
-        @RenderBody()
-    </main>
-</div>
+    <div class="container-fluid">
+        <header>
+            <nav class="navbar navbar-expand-lg eduman-bg-color">
+
+                @{
+                    await Html.RenderPartialAsync("_NavbarPartial");
+                }
+            </nav>
+        </header>
+        <main>
+            @RenderBody()
+        </main>
+    </div>
 
 @RenderSection("Scripts", required: false)
 </body>
