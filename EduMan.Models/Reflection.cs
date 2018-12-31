@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Eduman.Models
@@ -14,8 +15,12 @@ namespace Eduman.Models
 
         public DateTime DateCreated { get; set; }
 
+        [Required(ErrorMessage = "Student's Id cannot be empty")]
+        [Display(Name = "StudentId")]
         public string StudentId { get; set; }
 
+        [Required(ErrorMessage = "Teacher's Id cannot be empty")]
+        [Display(Name = "TeacherId")]
         public string TeacherId { get; set; }
     }
 }
