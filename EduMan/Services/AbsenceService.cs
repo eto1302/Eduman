@@ -31,6 +31,7 @@ namespace Eduman.Services
 
             EdumanUser Teacher =
                 this.context.Users.FirstOrDefault(u => u.UserName == teacherName);
+
             if (Student == null || !(await userManager.IsInRoleAsync(Student, "Student")))
             {
                 throw new Exception("The User is either non-existent or is not a student");

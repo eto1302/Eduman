@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eduman", "EduMan\Eduman.csproj", "{5F45BA3D-A8A8-42AA-8D56-221B5D1453E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eduman", "EduMan\Eduman.csproj", "{5F45BA3D-A8A8-42AA-8D56-221B5D1453E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eduman.Models", "EduMan.Models\Eduman.Models.csproj", "{BB62C0EC-6545-40C1-8009-16B8D2D5818F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eduman.Models", "EduMan.Models\Eduman.Models.csproj", "{BB62C0EC-6545-40C1-8009-16B8D2D5818F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eduman.Tests", "Eduman.Tests\Eduman.Tests.csproj", "{B5D7CCE2-5271-4CDB-8358-F72C9DF56025}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{BB62C0EC-6545-40C1-8009-16B8D2D5818F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB62C0EC-6545-40C1-8009-16B8D2D5818F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB62C0EC-6545-40C1-8009-16B8D2D5818F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5D7CCE2-5271-4CDB-8358-F72C9DF56025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5D7CCE2-5271-4CDB-8358-F72C9DF56025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5D7CCE2-5271-4CDB-8358-F72C9DF56025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5D7CCE2-5271-4CDB-8358-F72C9DF56025}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -86,5 +86,6 @@ C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Reflection\Details.g.cshtml.cs
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Reflection\AllCompliments.g.cshtml.cs
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Reflection\AllCriticisms.g.cshtml.cs
-C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Account\ConfirmUser.g.cshtml.cs
 C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Views\Shared\NonExistentStudentPage.g.cshtml.cs
+C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Areas\Confirmation\Views\Confirmation\ConfirmUser.g.cshtml.cs
+C:\Users\vikmar\Desktop\SoftUni\SoftUni_C#Web\Eduman\EduMan\obj\Debug\netcoreapp2.2\Razor\Areas\Confirmation\Views\_ViewStart.g.cshtml.cs

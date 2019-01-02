@@ -37,27 +37,7 @@ namespace Eduman.Controllers
             return this.View();
         }
 
-        [HttpGet]
-        [Authorize(Roles = "Principal")]
-        public async Task<IActionResult> ConfirmUser()
-        {
-            return this.View(await accountService.GetAllUnconfirmedUsersAsync(this.User.Identity.Name));
-        }
-
-        [HttpPost]
-        [Authorize(Roles = "Principal")]
-        public IActionResult ConfirmUser(string id)
-        {
-            try
-            {
-                accountService.ConfirmUser(id);
-            }
-            catch (Exception e)
-            {
-                if (e.Message == "The User is non-existent") return this.View("~/Views/Shared/NonExistentStudentPage.cshtml");
-            }
-            return this.RedirectToAction("ConfirmUser");
-        }
+        
 
 
         [HttpPost]

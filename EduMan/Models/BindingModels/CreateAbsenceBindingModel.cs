@@ -28,6 +28,5 @@ namespace Eduman.Models.BindingModels
         [Required(ErrorMessage = "Student's Last Name cannot be empty")]
         [Display(Name = "StudentLastName")]
         public string StudentLastName { get; set; }
-        
     }
 }
