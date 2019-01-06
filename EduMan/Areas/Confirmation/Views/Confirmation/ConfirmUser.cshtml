@@ -19,11 +19,12 @@
         @foreach (var m in @Model)
         {
             <tr>
-                <th scope="row">@($"{m.FirstName + m.LastName}")</th>
+                <th scope="row">@($"{m.FirstName} {m.LastName}")</th>
                 <td>@m.Username</td>
                 <td>@m.Role</td>
                 <td>
-                    <form method="post" asp-controller="Account" asp-action="ConfirmUser" asp-route-id="@m.Id">
+                    <form method="post" asp-area="Confirmation" asp-controller="Confirmation" asp-action="ConfirmUser">
+                        <input type=hidden name=id value="@m.Id">
                         <button type="submit" class="btn eduman-bg-color">Confirm</button>
                     </form>
                 </td>
